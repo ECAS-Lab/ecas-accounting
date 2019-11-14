@@ -66,7 +66,7 @@ By default, PostgreSQL will create a Linux user named *postgres* to access the d
 		```
 		SELECT COUNT(DISTINCT(w.username)) as tot_users, COUNT(DISTINCT(w.idworkflow)) as tot_workflows, COUNT(t.idtask) as tot_operators, round(SUM(t.duration/3600*t."#cores")::numeric,3) AS corehours FROM workflow w INNER JOIN task t ON w.idworkflow=t.idworkflow WHERE t.duration<100000 AND t.idtask IS NOT NULL;
 		```
-	 **Total number of users, workflows, operators and cores**
+	 * **Total number of users, workflows, operators and cores**
 		```
 		SELECT COUNT(DISTINCT(w.username)) as tot_users, COUNT(DISTINCT(w.idworkflow)) as tot_workflows, COUNT(t.idworkflow) as tot_operators, SUM(t."#cores") AS tot_cores FROM workflow w INNER JOIN task t ON w.idworkflow=t.idworkflow;
 		```
