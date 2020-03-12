@@ -59,7 +59,7 @@ By default, PostgreSQL will create a Linux user named *postgres* to access the d
 
 	* **Total number of workflows, operators and cores per user**
 		```
-		**SELECT 'Username ' || ROW_NUMBER() OVER (Order by w.username) AS Username, COUNT(DISTINCT(w.idworkflow)) as workflows, count(t.idworkflow) AS operators, SUM(t."#cores") AS tot_cores FROM workflow w,task t WHERE w.idworkflow = t.idworkflow GROUP BY(w.username);**
+		SELECT 'Username ' || ROW_NUMBER() OVER (Order by w.username) AS Username, COUNT(DISTINCT(w.idworkflow)) as workflows, count(t.idworkflow) AS operators, SUM(t."#cores") AS tot_cores FROM workflow w,task t WHERE w.idworkflow = t.idworkflow GROUP BY(w.username);
 		```
 
 	* **Total number of users, workflows, operators and cores/hour**
